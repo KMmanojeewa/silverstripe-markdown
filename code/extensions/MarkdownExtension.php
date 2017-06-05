@@ -36,8 +36,8 @@ class MarkdownExtension extends DataExtension {
 
 
     public static function get_extra_config($class, $extension, $args) {
-        if(!self::$replace_html_fields) return array();
-        if(self::$disable_markdown_fields) return array();
+        if(!Config::inst()->get(__CLASS__, 'replace_html_fields')) return array();
+        if(Config::inst()->get(__CLASS__, 'disable_markdown_fields')) return array();
 
         $config = Config::inst();
         // Merge all config values for subclasses
